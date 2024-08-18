@@ -161,7 +161,7 @@ public with sharing class ClassesObjectsMethods {
         Integer finalRandom = Math.round((Decimal)(numRandom * 100));  //x100 to get bw 50 and 100, rounds, converts to Int
         return finalRandom;
     }
-    
+
     /**
      * Question 8
      * Format the current date in the current user locale format.
@@ -169,12 +169,10 @@ public with sharing class ClassesObjectsMethods {
      * @return The current date in the current user locale format.
      */
     public static String getCurrentDate() {
-        // Get the todays date
-
-        // Format the current date
-
+        Date today = date.today(); // Get the todays date
+        String todayString = today.format(); // Format the current date
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return todayString; 
     }
 
     /**
@@ -184,15 +182,19 @@ public with sharing class ClassesObjectsMethods {
      * @return The number of the day of the week for the given date.
      */
     public static String getDayOfWeek(DateTime dt) {
-        // Define a map of day of the week as a key and day number as the value
-        // Monday = 1, Tuesday = 2, etc.
+        Map<String, Integer> daysOfWeek = new Map<String, Integer>();
+        daysOfWeek.put('Monday', 1);      // Define a map of day of the week as a key and day number as the value
+        daysOfWeek.put('Tuesday', 2);  
+        daysOfWeek.put('Wednesday', 3);
+        daysOfWeek.put('Thursday', 4);
+        daysOfWeek.put('Friday', 5);
+        daysOfWeek.put('Saturday', 6);
+        daysOfWeek.put('Sunday', 7);
 
-        // Get the day name using .format('EEEE');
-
-        // Get the day number from the map using the day name
-
-        // Return the result as a string
-        return null; // Replace null with the variable you used to store the result
+        String dayString = dt.format('EEEE');   // Get the day name using .format('EEEE');
+        String dayNumber = String.valueOf(daysOfWeek.get(dayString));  // Get the day number from the map using the day name
+        
+        return dayNumber; 
     }
 
 
@@ -207,9 +209,11 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer calculateYearDifference(Date d1, Date d2) {
 
-        // Subtract the difference in years
-
-        return null; // Replace null with the variable you used to store the result
+        if(d1 == null || d2 == null){
+            return null;
+        }
+        return (Math.max(d1.year(),d2.year())-Math.min(d1.year(), d2.year())); // Subtract the difference in years + return
+    
     }
 
     /**
