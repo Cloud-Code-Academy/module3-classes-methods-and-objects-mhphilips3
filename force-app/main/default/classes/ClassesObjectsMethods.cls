@@ -99,17 +99,19 @@ public with sharing class ClassesObjectsMethods {
      * @return The number of vowels in the string.
      */
     public static Integer countVowels(String str) {
-        // Initialize the result Integer
+        Integer numVowels = 0;                  //sets vowel counter to 0
 
-        /*
-        for () {
-            // get individual characters from the string - hint use substring or split
-            // check if the character is a vowel
-            // if it is a vowel, increment the result Integer
+        for(Integer i=0; i < str.length(); i++){  // loops through the String, character by character
+            if (str.substring(i, i+1) == 'a' ||   // if the current character is a vowel
+                str.substring(i, i+1) == 'e' ||
+                str.substring(i, i+1) == 'i' ||
+                str.substring(i, i+1) == 'o' ||
+                str.substring(i, i+1) == 'u') {
+                numVowels++;                     // increment counter
+            }
         }
-        */
 
-        return null; // Replace null with the variable you used to store the result
+        return numVowels; 
     }
 
     /**
