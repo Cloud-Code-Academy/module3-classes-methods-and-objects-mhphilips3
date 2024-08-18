@@ -73,16 +73,21 @@ public with sharing class ClassesObjectsMethods {
      * @return A string consisting of only unique words from the input sentence.
      */
     public static String removeDuplicateWords(String sentence) {
-        // Split the sentence into words
-
-        // Create a set to store the unique words
-
-        // Add each word to the set
-
-        // Join the unique words back into a sentence
-
-        // Return the sentence with unique words
-        return null; // Replace null with the variable you used to store the result
+        
+        if (sentence.contains(' ') == false){  //checks for 1 word sentences
+            return sentence;                   //and returns back the 1 word sentence if that's the case
+        }
+        
+        Set<String> sentenceSet = new Set<String>(); // Create a set to store the unique words
+        
+        do {
+            sentenceSet.add(sentence.substringBefore(' '));   // grab first word and add to set
+            sentence = sentence.substringAfter(' ').trim();  // remove word added to set and trim off the space.
+        } while (!String.isEmpty(sentence));   // Until the sentence is reduced to ''
+        
+        List<String> sentenceList = new List<String>(sentenceSet); // convert Set to List
+        return String.join(sentenceList,' '); // Join list to a string and return.
+        
     }
 
     /**
