@@ -38,23 +38,14 @@ public with sharing class ClassesObjectsMethods {
      * @return A list containing the length of the string, a substring of the string, and the string in lower case.
      */
     public static List<String> practiceStringMethods() {
-        // Initialize a String with 'Hello, Salesforce!'
         String initString = 'Hello, Salesforce!';
 
         List<String> stringList = new List<String>();
-        stringList.add(String.valueOf(initString.length()));
+        stringList.add(String.valueOf(initString.length())); //String.valueOf() recasts the Integer to a String
         stringList.add(initString.substring(0,5));
         stringList.add(initString.toLowerCase());
-        // Get the length of the String        
-        // Get a substring of the String of the first 5 characters
-        // Convert the String to lower case
-        
-        // Return the list with the string data
-        // In the first position add the string length
-        // In the second position add the substring
-        // In the third position add the string in lower case
-
-        return stringList; // Replace null with the variable you used to store the result
+       
+        return stringList; 
     }
 
     /**
@@ -65,15 +56,13 @@ public with sharing class ClassesObjectsMethods {
      * @return A list of boolean values indicating whether the string starts with 'Sales', ends with 'Force', or contains 'Awesome'.
      */
     public static List<Boolean> checkStringContent(String input) {
-        // Initialize a list to store the results
-        
-        // Check if the string starts with 'Sales'
-        
-        // Check if the string ends with 'Force'
-        
-        // Check if the string contains 'Awesome'
-        
-        return null; // Replace null with the variable you used to store the result
+        List<Boolean> resultList = new List<Boolean>(); //Initialize list
+
+        resultList.add(input.startsWith('Sales'));   // Check if the string starts with 'Sales'
+        resultList.add(input.endsWith('Force'));
+        resultList.add(input.contains('Awesome'));
+               
+        return resultList; 
     }
 
     /**
