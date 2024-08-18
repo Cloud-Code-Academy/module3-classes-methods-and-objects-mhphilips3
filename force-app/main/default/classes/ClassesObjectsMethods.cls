@@ -1,4 +1,4 @@
-/**  check for updates
+/**
  * The ClassesObjectsMethods class serves as an exploration into Object Oriented Programming in Apex.
  * It covers fundamental aspects such as class instantiation, method creation, encapsulation, and object interaction.
  *
@@ -40,7 +40,12 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<String> practiceStringMethods() {
         // Initialize a String with 'Hello, Salesforce!'
-        
+        String initString = 'Hello, Salesforce!';
+
+        List<String> stringList = new List<String>();
+        stringList.add(String.valueOf(initString.length()));
+        stringList.add(initString.substring(0,5));
+        stringList.add(initString.toLowerCase());
         // Get the length of the String        
         // Get a substring of the String of the first 5 characters
         // Convert the String to lower case
@@ -50,7 +55,7 @@ public with sharing class ClassesObjectsMethods {
         // In the second position add the substring
         // In the third position add the string in lower case
 
-        return null; // Replace null with the variable you used to store the result
+        return stringList; // Replace null with the variable you used to store the result
     }
 
     /**
