@@ -102,12 +102,8 @@ public with sharing class ClassesObjectsMethods {
         Integer numVowels = 0;                  //sets vowel counter to 0
 
         for(Integer i=0; i < str.length(); i++){  // loops through the String, character by character
-            if (str.substring(i, i+1) == 'a' ||   // if the current character is a vowel
-                str.substring(i, i+1) == 'e' ||
-                str.substring(i, i+1) == 'i' ||
-                str.substring(i, i+1) == 'o' ||
-                str.substring(i, i+1) == 'u') {
-                numVowels++;                     // increment counter
+            if (str.substring(i, i+1).containsAny('aeiou')){   // if the current character is a vowel
+                    numVowels++;                     // increment counter
             }
         }
 
@@ -125,7 +121,12 @@ public with sharing class ClassesObjectsMethods {
         // The list of scientists' names
         List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};
 
-        // The variable to store the concatenated string
+        String combinedNames;
+        for (String name : scientistNames){
+            if (name.contains('g')){
+                combinedNames += name +',';
+            }
+        }
 
         // Loop through the list of scientists' names
 
