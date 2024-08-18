@@ -106,7 +106,6 @@ public with sharing class ClassesObjectsMethods {
                     numVowels++;                     // increment counter
             }
         }
-
         return numVowels; 
     }
 
@@ -121,22 +120,14 @@ public with sharing class ClassesObjectsMethods {
         // The list of scientists' names
         List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};
 
-        String combinedNames;
+        String combinedNames = '';
         for (String name : scientistNames){
-            if (name.contains('g')){
+            if (name.containsIgnoreCase('g')){
                 combinedNames += name +',';
             }
         }
-
-        // Loop through the list of scientists' names
-
-            // If the name doesn't contain the letter 'G', skip this iteration
-
-            // Add the name to the result string, followed by a comma
-
-        // Remove the last comma from the result string
-
-        return null; // Replace null with the variable you used to store the result
+        combinedNames=combinedNames.removeEnd(',');
+        return combinedNames;
     }
 
     /**
@@ -148,12 +139,11 @@ public with sharing class ClassesObjectsMethods {
      * @return The absolute value of the difference
      */
     public static Double calculateDifferenceOfSquares(Double a, Double b) {
-        // Square the input numbers using the Math.pow() function
+        a = Math.pow(a,2);
+        b = Math.pow(b, 2);
 
-        // Calculate the absolute difference using Math.abs() function
-
-        // Return the result
-        return null; // Replace null with the variable you used to store the result
+        Double answer = Math.abs(a-b);
+        return answer;
     }
 
     /**
@@ -164,11 +154,14 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer generateRandomNumber() {
         // Use Math class to generate number between 50 and 100
-
-        // Return the random integer
-        return null; // Replace null with the variable you used to store the result
+        Double numRandom = Math.random();
+        While (numRandom < .5){             //rejects numbers under .5, forces a new random number
+            numRandom = Math.random();   
+        }
+        Integer finalRandom = Math.round((Decimal)(numRandom * 100));  //x100 to get bw 50 and 100, rounds, converts to Int
+        return finalRandom;
     }
-
+    
     /**
      * Question 8
      * Format the current date in the current user locale format.
