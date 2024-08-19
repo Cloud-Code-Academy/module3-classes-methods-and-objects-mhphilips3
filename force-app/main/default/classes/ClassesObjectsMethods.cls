@@ -250,12 +250,10 @@ public with sharing class ClassesObjectsMethods {
      * @return A string containing the details of the book.
      */
     public static String createAndGetBookDetails() {
-        // Create a Book object with title "A Brief History of Time" and author "Stephen Hawking"
-
-        // Call the getBookDetails method on the book object to get the details of the book
-
-        // Return the details of the book
-        return null; // Replace null with the variable you used to store the result
+        Book newBook = new Book('A Brief History of Time', 'Stephen Hawking');
+        
+        String newBookDetails = newBook.getBookDetails(); // Call the getBookDetails method on the book object to get the details of the book
+        return newBookDetails; 
     }
 
     /**
@@ -269,18 +267,18 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Book> generateBookList(Book myBook1) {
         // Create a list of books
-
-        // Update the title and author of myBook1
-
-        // Update the pages for myBook1 to 352
+        List<Book> bookList = new List<Book>{myBook1};
+        myBook1.title = 'Harry Potter and the Chamber of Secrets';
+        myBook1.author = 'J.K. Rowling';// Update the title and author of myBook1
+        myBook1.pages = 352;            // Update the pages for myBook1 to 352
 
         // Create a new Book object with title "A Brief History of Time" and author "Stephen Hawking"
+        Book myBook2 = new Book('A Brief History of Time', 'Stephen Hawking');
+        myBook2.pages = 256;    // Update the pages for A Brief History of Time to 256
 
-        // Update the pages for A Brief History of Time to 256
-
-        // Add the book to the list
+        bookList.add(myBook2);// Add the book to the list
         
-        return null; // Replace null with the variable you used to store the result      
+        return booklist; // Replace null with the variable you used to store the result      
     }
 
 
