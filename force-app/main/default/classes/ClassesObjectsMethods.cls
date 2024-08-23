@@ -74,19 +74,17 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String removeDuplicateWords(String sentence) {
         
-        if (sentence.contains(' ') == false){  //checks for 1 word sentences
-            return sentence;                   //and returns back the 1 word sentence if that's the case
+        if (sentence.contains(' ') == false){                       //checks for 1 word sentences
+            return sentence;                                        //and returns back the 1 word sentence if that's the case
         }
-        
-        Set<String> sentenceSet = new Set<String>(); // Create a set to store the unique words
-        
+        Set<String> sentenceSet = new Set<String>();                // Create a set to store the unique words        
         do {
-            sentenceSet.add(sentence.substringBefore(' '));   // grab first word and add to set
-            sentence = sentence.substringAfter(' ').trim();  // remove word added to set and trim off the space.
-        } while (!String.isEmpty(sentence));   // Until the sentence is reduced to ''
+            sentenceSet.add(sentence.substringBefore(' '));          // grab first word and add to set
+            sentence = sentence.substringAfter(' ').trim();         // remove word added to set and trim off the space.
+        } while (!String.isEmpty(sentence));                        // Until the sentence is reduced to ''
         
         List<String> sentenceList = new List<String>(sentenceSet); // convert Set to List
-        return String.join(sentenceList,' '); // Join list to a string and return.
+        return String.join(sentenceList,' ');                       // Join list to a string and return.
         
     }
 
@@ -99,11 +97,10 @@ public with sharing class ClassesObjectsMethods {
      * @return The number of vowels in the string.
      */
     public static Integer countVowels(String str) {
-        Integer numVowels = 0;                  //sets vowel counter to 0
-
-        for(Integer i=0; i < str.length(); i++){  // loops through the String, character by character
+        Integer numVowels = 0;                                  //sets vowel counter to 0
+        for(Integer i=0; i < str.length(); i++){                // loops through the String, character by character
             if (str.substring(i, i+1).containsAny('aeiou')){   // if the current character is a vowel
-                    numVowels++;                     // increment counter
+                    numVowels++;                                // increment counter
             }
         }
         return numVowels; 
@@ -155,7 +152,7 @@ public with sharing class ClassesObjectsMethods {
     public static Integer generateRandomNumber() {
         // Use Math class to generate number between 50 and 100
         Double numRandom = Math.random();
-        While (numRandom < .5){             //rejects numbers under .5, forces a new random number
+        While (numRandom < .5){                                         //rejects numbers under .5, forces a new random number
             numRandom = Math.random();   
         }
         Integer finalRandom = Math.round((Decimal)(numRandom * 100));  //x100 to get bw 50 and 100, rounds, converts to Int
@@ -169,9 +166,8 @@ public with sharing class ClassesObjectsMethods {
      * @return The current date in the current user locale format.
      */
     public static String getCurrentDate() {
-        Date today = date.today(); // Get the todays date
-        String todayString = today.format(); // Format the current date
-        // Return the result
+        Date today = date.today();              // Get the todays date
+        String todayString = today.format();    // Format the current date       
         return todayString; 
     }
 
@@ -191,7 +187,7 @@ public with sharing class ClassesObjectsMethods {
         daysOfWeek.put('Saturday', 6);
         daysOfWeek.put('Sunday', 7);
 
-        String dayString = dt.format('EEEE');   // Get the day name using .format('EEEE');
+        String dayString = dt.format('EEEE');                           // Get the day name using .format('EEEE');
         String dayNumber = String.valueOf(daysOfWeek.get(dayString));  // Get the day number from the map using the day name
         
         return dayNumber; 
@@ -231,7 +227,7 @@ public with sharing class ClassesObjectsMethods {
     
         // Book constructor to initialize the title and author
         public Book(String title, String author) {
-            this.title = title;     // Initialize the title and author
+            this.title = title;                     // Initialize the title and author
             this.author = author;
         }
     
@@ -269,16 +265,15 @@ public with sharing class ClassesObjectsMethods {
         // Create a list of books
         List<Book> bookList = new List<Book>{myBook1};
         myBook1.title = 'Harry Potter and the Chamber of Secrets';
-        myBook1.author = 'J.K. Rowling';// Update the title and author of myBook1
-        myBook1.pages = 352;            // Update the pages for myBook1 to 352
+        myBook1.author = 'J.K. Rowling';                            // Update the title and author of myBook1
+        myBook1.pages = 352;                                        // Update the pages for myBook1 to 352
 
         // Create a new Book object with title "A Brief History of Time" and author "Stephen Hawking"
         Book myBook2 = new Book('A Brief History of Time', 'Stephen Hawking');
-        myBook2.pages = 256;    // Update the pages for A Brief History of Time to 256
-
-        bookList.add(myBook2);// Add the book to the list
+        myBook2.pages = 256;                                        // Update the pages for A Brief History of Time to 256
+        bookList.add(myBook2);                                      // Add the book to the list
         
-        return booklist; // Replace null with the variable you used to store the result      
+        return booklist;  
     }
 
 
@@ -332,10 +327,10 @@ public with sharing class ClassesObjectsMethods {
     public static List<String> personDetails() {
         List<String> results = new List<String>();
         // Create a new instance of Person class
-        Person newPerson = new Person('John Doe', 28);  // Name the person 'John Doe' and set the age to 28       
-        results.add(newPerson.introduceYourself()); // Add the details of the person using the introduceYourself method        
-        results.add(newPerson.getName());     // Get the name of the person using the getter method and add it to the list  
-        results.add(String.valueOf(newPerson.getAge()));   // Get the age of the person using the getter method and add it to the list
+        Person newPerson = new Person('John Doe', 28);      // Name the person 'John Doe' and set the age to 28       
+        results.add(newPerson.introduceYourself());         // Add the details of the person using the introduceYourself method        
+        results.add(newPerson.getName());                   // Get the name of the person using the getter method and add it to the list  
+        results.add(String.valueOf(newPerson.getAge()));    // Get the age of the person using the getter method and add it to the list
         return results; 
     }
 
@@ -349,8 +344,8 @@ public with sharing class ClassesObjectsMethods {
     public static Person createPerson(String name, Integer age) {
         // Create a new instance of the Person class using the provided name and age
         Person newPerson = new Person(name, age);    
-        // Return the new instance of the Person class
-        return newPerson; // Replace null with the variable you used to store the result
+        
+        return newPerson; 
     }
 
     /**
@@ -364,9 +359,9 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Person> createMultiplePersons(List<String> names, Integer age) {
         List<Person> people = new List<Person>();
-        for(String name : names){   // Loop through each name in the provided list of names
-            Person newPerson = new Person(name, age);// Create a new Person object for each name
-            people.add(newPerson);         // Add the new Person object to the list of Person objects        
+        for(String name : names){                       // Loop through each name in the provided list of names
+            Person newPerson = new Person(name, age);   // Create a new Person object for each name
+            people.add(newPerson);                      // Add the new Person object to the list of Person objects        
         }
         return people;
     }
